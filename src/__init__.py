@@ -11,12 +11,12 @@ app = Flask(__name__)
 basedir = os.path.abspath(os.getcwd())
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 app.config['SECRET_KEY'] = 'my secret'
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:efgan2019@localhost/database'
+#
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://tblwfvkvcjmsej:bccf23d469fd61cc6aac95067a9357386cc8c12978eace5332ed82f8cbf7fbac@ec2-54-246-100-246.eu-west-1.compute.amazonaws.com:5432/dfq7fh6tl6o2o5'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 
-app.config['SQLALCHEMY_DATABASE_URI'] =  'mysql://root:@localhost/personal'
+# app.config['SQLALCHEMY_DATABASE_URI'] =  'mysql://root:@localhost/personal'
 app.config['CKEDITOR_FILE_UPLOADER'] = 'upload'
 app.config['CKEDITOR_SERVE_LOCAL'] = True
 
@@ -84,3 +84,4 @@ def upload():
     url = url_for('uploaded_files', filename=f.filename)
     return upload_success(url=url)
 
+db.create_all()
